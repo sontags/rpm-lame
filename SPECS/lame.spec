@@ -99,5 +99,5 @@ execstack -c %{buildroot}%{_libdir}/*.so.*.*.* || :
 %exclude %{_libdir}/libmp3lame.la
 
 %changelog
-* Thu 01 15 2015 Daniel Menet <daniel.menet@swisstxt.ch> -3.99.5-1
+* Thu Jan 15 2015 Daniel Menet <daniel.menet@swisstxt.ch> -3.99.5-1
 - Initial release based on https://github.com/lkiesow/matterhorn-rpms/blob/master/specs/lame.spec
