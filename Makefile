@@ -1,10 +1,10 @@
 HOME=$(shell pwd)
 VERSION="3.99.5"
-RELEASE=$(shell ./make_helper/get-git-rev .)
+RELEASE=$(shell /opt/buildhelper/buildhelper getgitrev .)
 NAME=lame
-SPEC=$(shell ./make_helper/get-spec ${NAME})
-ARCH=$(shell ./make_helper/get-arch)
-OS_RELEASE=$(shell lsb_release -rs | cut -f1 -d.)
+SPEC=$(shell /opt/buildhelper/buildhelper getspec ${NAME})
+ARCH=$(shell /opt/buildhelper/buildhelper getarch)
+OS_RELEASE=$(shell /opt/buildhelper/buildhelper getosrelease)
 
 all: build
 
@@ -15,7 +15,7 @@ clean:
 	mkdir -p ./SPECS ./SOURCES
 
 getsources:
-	wget  -P ./SOURCES/ -q http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz
+	wget  -P ./SOURCES/ -q http://downloads.sourceforge.net/project/lame/lame/3.99/lame-${VERSION}.tar.gz
 
 build: clean getsources
 	cp -r ./SPECS/* ./rpmbuild/SPECS/ || true
